@@ -24,14 +24,14 @@ DROP TABLE IF EXISTS `advice_sessions`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `advice_sessions` (
   `session_id` int NOT NULL AUTO_INCREMENT,
-  `farmer_id` int NOT NULL,
+  `farm_id` int NOT NULL,
   `worker_id` int NOT NULL,
   `session_date` date NOT NULL,
   `notes_topics` text,
   PRIMARY KEY (`session_id`),
-  KEY `farmer_id` (`farmer_id`),
+  KEY `farm_id` (`farm_id`),
   KEY `worker_id` (`worker_id`),
-  CONSTRAINT `advice_sessions_ibfk_1` FOREIGN KEY (`farmer_id`) REFERENCES `farmers` (`farmer_id`) ON DELETE CASCADE,
+  CONSTRAINT `advice_sessions_ibfk_1` FOREIGN KEY (`farm_id`) REFERENCES `farms` (`farm_id`) ON DELETE CASCADE,
   CONSTRAINT `advice_sessions_ibfk_2` FOREIGN KEY (`worker_id`) REFERENCES `extension_workers` (`worker_id`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -41,7 +41,7 @@ CREATE TABLE `advice_sessions` (
 --
 
 /*!40000 ALTER TABLE `advice_sessions` DISABLE KEYS */;
-INSERT INTO `advice_sessions` VALUES (1,18,7,'2025-09-03','Soil testing and fertilization'),(2,19,7,'2025-09-04','Post-harvest handling best practices'),(3,20,8,'2025-09-05','Climate-smart agricultural techniques');
+INSERT INTO `advice_sessions` VALUES (1,4,7,'2025-09-03','Soil testing and fertilization'),(2,5,7,'2025-09-04','Post-harvest handling best practices'),(3,6,8,'2025-09-05','Climate-smart agricultural techniques');
 /*!40000 ALTER TABLE `advice_sessions` ENABLE KEYS */;
 
 --
